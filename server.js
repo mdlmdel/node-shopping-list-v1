@@ -18,10 +18,20 @@ ShoppingList.create('beans', true);
 ShoppingList.create('tomatoes', false);
 ShoppingList.create('peppers', false);
 
+// Add recipes via create
+Recipes.create('chocolate milk', ['cocoa', 'milk', 'sugar']); 
+Recipes.create('pesto', ['basil', 'pine nuts', 'garlic']); 
+Recipes.create('paella', ['seafood', 'chorizo', 'olives', 'rice']]);
+
 // when the root of this router is called with GET, return
 // all current ShoppingList items
 app.get('/shopping-list', (req, res) => {
   res.json(ShoppingList.get());
+});
+
+// Apply GET to recipes
+app.get('/recipes', (req, res) => {
+  res.json(Recipes.get());
 });
 
 app.listen(process.env.PORT || 8080, () => {
